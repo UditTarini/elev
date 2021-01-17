@@ -1,0 +1,19 @@
+.cart {
+  background-color: rgb(224, 224, 224);
+  height: auto;
+}
+
+.cart-img {
+  height: 9rem;
+  width: 9rem;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.summary {
+  width: 200px;
+  background-color: rgb(224, 224, 224);
+}

@@ -1,0 +1,15 @@
+.navbar {
+  padding-left: 23rem;
+  margin-bottom: 4rem;
+}
+.nav-link {
+  color: white;
+}
+
+.search {
+  width: 30rem;
+}
+
+a {
+  font-size: large;
+}
