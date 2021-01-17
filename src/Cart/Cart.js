@@ -4,17 +4,20 @@ import "./Cart.css";
 const Cart = () => {
   const [itemList, setitemList] = useState([]);
   const [saveLaterItems, setSaveLater] = useState([]);
+  const [update, setUpdate] = useState(false);
   const [exist, setExist] = useState(true);
   const [total, setTotal] = useState(0);
   useEffect(() => {
-    let data = JSON.parse(localStorage.getItem("cart"));
-
     let saveLater = JSON.parse(localStorage.getItem("saveLater"));
 
     setSaveLater(saveLater);
-    setitemList(data);
     totalPrice();
   }, [itemList]);
+
+  useEffect(() => {
+    let data = JSON.parse(localStorage.getItem("cart"));
+    setitemList(data);
+  }, [update]);
 
   const checkExist = (itemName) => {
     if (localStorage.getItem(itemName) != null) {
@@ -28,17 +31,23 @@ const Cart = () => {
   };
 
   const add = (itemNo) => {
+    setUpdate(!update);
+
     let itemAdded = (itemList[itemNo].quantity += 1);
     localStorage.removeItem("cart");
     localStorage.setItem("cart", JSON.stringify(itemList));
   };
 
   const remove = (itemNo) => {
+    setUpdate(!update);
+
     itemList.splice(itemNo, 1);
     localStorage.setItem("cart", JSON.stringify(itemList));
   };
 
   const saveLater = (itemNo) => {
+    setUpdate(!update);
+
     localStorage.setItem("saveLater", JSON.stringify([itemList[itemNo]]));
   };
   return (
