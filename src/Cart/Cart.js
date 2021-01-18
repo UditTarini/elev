@@ -98,7 +98,7 @@ const Cart = () => {
           </div>
         </div>
 
-        {saveLaterItems.map((data, index) => {
+        {/* {saveLaterItems.map((data, index) => {
           return (
             <div className="d-flex justify-content-start">
               <img
@@ -113,7 +113,7 @@ const Cart = () => {
               </div>
             </div>
           );
-        })}
+        })} */}
       </div>
     </>
   );
